@@ -190,41 +190,18 @@ const quickLink: quickLinksType[] = [
 // 
 const searchSugg: searchType[] = [
     {
-        title: 'Modern',
-        href: '/dashboards/modern'
+        title: 'Mantenimiento',
+        href: '/dashboards/RecursosMa/'
     },
     {
-        title: 'eCommerce',
-        href: '/dashboards/ecommerce'
+        title: 'Equipamiento',
+        href: '/dashboards/RecursosM'
     },
     {
-        title: 'Contacts',
-        href: '/apps/contacts'
+        title: 'Equipamiento e Instalaciones',
+        href: '/dashboards/RecursosMat'
     },
-    {
-        title: 'Shop',
-        href: '/ecommerce/products'
-    },
-    {
-        title: 'Checkout',
-        href: '/ecommerce/checkout'
-    },
-    {
-        title: 'Chats',
-        href: '/apps/chats'
-    },
-    {
-        title: 'Notes',
-        href: '/apps/notes'
-    },
-    {
-        title: 'Pricing',
-        href: '/pages/pricing'
-    },
-    {
-        title: 'Account Setting',
-        href: '/pages/account-settings'
-    },
+
 ];
 
 export { notifications, profileDD, languageDD, appsLink, quickLink, searchSugg };
