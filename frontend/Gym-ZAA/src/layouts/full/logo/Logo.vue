@@ -1,6 +1,6 @@
 <script setup>
 import { computed } from "vue";
-import LogoLight from "./LogoDark.vue";
+import LogoLight from "./LogoLight.vue";
 import LogoDark from "./LogoDark.vue";
 import RtlLogoDark from "./RtlLogoDark.vue";
 import RtlLogoLight from "./RtlLogoLight.vue";
