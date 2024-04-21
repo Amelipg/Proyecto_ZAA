@@ -60,12 +60,12 @@ const DarkthemeColors = ref([
 <template>
     
     <div class="pa-6">
-        <h5 class="text-h5">Settings</h5>
+        <h5 class="text-h5">Ajustes</h5>
     </div>
     <v-divider></v-divider>
     <perfect-scrollbar style="height: calc(100vh - 90px)">
         <div class="pa-6">
-            <h6 class="text-h6 mb-2">Sidebar Layout</h6>
+            <h6 class="text-h6 mb-2">Diseño de la Barra Lateral</h6>
             <v-btn-toggle v-model="customizer.setHorizontalLayout" color="primary" class="my-2 btn-group-custom gap-3" rounded="0" group>
                 <v-btn :value="false" variant="text" elevation="9" class="rounded-md">
                     <LayoutColumnsIcon stroke-width="1.5" size="21" class="mr-2 icon " /> Vertical
@@ -76,7 +76,7 @@ const DarkthemeColors = ref([
             </v-btn-toggle>
 
             <!------Theme Direction------>
-            <h6 class="text-h6 mt-8 mb-5">Theme Direction</h6>
+            <h6 class="text-h6 mt-8 mb-5">Direccion del tema</h6>
             <v-btn-toggle v-model="customizer.setRTLLayout" color="primary" class="my-2 btn-group-custom gap-3" rounded="0" group>
                 <v-btn :value="false" variant="text" elevation="9" class="rounded-md">
                     <TextDirectionLtrIcon stroke-width="1.5" size="21" class="mr-2 icon" /> LTR
@@ -87,7 +87,7 @@ const DarkthemeColors = ref([
             </v-btn-toggle>
 
 
-            <h6 class="text-h6 mt-8 mb-5">Theme Color</h6>
+            <!-- <h6 class="text-h6 mt-8 mb-5">Theme Color</h6>
             <v-item-group mandatory v-model="customizer.actTheme" class="ml-n2 v-row">
                 <v-col cols="4" v-for="theme in themeColors" :key="theme.name" class="pa-2">
                     <v-item v-slot="{ isSelected, toggle }" :value="theme.name">
@@ -103,8 +103,8 @@ const DarkthemeColors = ref([
                         </v-sheet>
                     </v-item>
                 </v-col>
-            </v-item-group>
-            <h6 class="text-h6 mt-11 mb-5">Theme Dark Color</h6>
+            </v-item-group> -->
+            <h6 class="text-h6 mt-11 mb-5">Tema Obscuro</h6>
             <v-item-group mandatory v-model="customizer.actTheme" class="ml-n2 v-row">
                 <v-col cols="4" v-for="theme in DarkthemeColors" :key="theme.name" class="pa-2">
                     <v-item v-slot="{ isSelected, toggle }" :value="theme.name">
@@ -121,7 +121,7 @@ const DarkthemeColors = ref([
                     </v-item>
                 </v-col>
             </v-item-group>
-            <h6 class="text-h6 mt-11 mb-2">Container Option</h6>
+            <!-- <h6 class="text-h6 mt-11 mb-2">Container Option</h6>
             <v-btn-toggle v-model="customizer.boxed" color="primary" class="my-2 btn-group-custom gap-3" rounded="0" group>
                 <v-btn :value="true" variant="text" elevation="9" class="rounded-md">
                     <LayoutDistributeVerticalIcon stroke-width="1.5" size="21" class="mr-2 icon" />
@@ -131,22 +131,22 @@ const DarkthemeColors = ref([
                     <LayoutDistributeHorizontalIcon stroke-width="1.5" size="21" class="mr-2 icon" />
                     Full
                 </v-btn>
-            </v-btn-toggle>
+            </v-btn-toggle> -->
             <!---Horizontal demo hide this option --->
             <v-sheet v-if="customizer.setHorizontalLayout != true">
-            <h6 class="text-h6 mt-11 mb-2">Sidebar Type</h6>
+            <h6 class="text-h6 mt-11 mb-2">Tipo Barra</h6>
             <v-btn-toggle v-model="customizer.mini_sidebar" color="primary" class="my-2 btn-group-custom gap-3" rounded="0" group>
                 <v-btn :value="false" variant="text" elevation="9" class="rounded-md">
                     <LayoutSidebarIcon stroke-width="1.5" size="21" class="mr-2 icon" />
-                    Full
+                    Todo
                 </v-btn>
                 <v-btn :value="true" variant="text" elevation="9" class="rounded-md ">
                     <LayoutSidebarLeftCollapseIcon stroke-width="1.5" size="21" class="mr-2 icon" />
-                    Collapse
+                    Colapsar 
                 </v-btn>
             </v-btn-toggle>
             </v-sheet>
-            <h6 class="text-h6 mt-11 mb-2">Card with</h6>
+            <!-- <h6 class="text-h6 mt-11 mb-2">Card with</h6>
             <v-btn-toggle v-model="customizer.setBorderCard" color="primary" class="my-2 btn-group-custom gap-3" rounded="0" group>
                 <v-btn :value="false" variant="text" elevation="9" class="rounded-md">
                     <LayoutSidebarLeftCollapseIcon stroke-width="1.5" size="21" class="mr-2 icon" />
@@ -156,7 +156,7 @@ const DarkthemeColors = ref([
                     <LayoutSidebarIcon stroke-width="1.5" size="21" class="mr-2 icon" />
                     Border
                 </v-btn>
-            </v-btn-toggle>
+            </v-btn-toggle> -->
         </div>
     </perfect-scrollbar>
 

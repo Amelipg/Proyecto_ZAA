@@ -39,7 +39,7 @@ const MainRoutes = {
         {
             name: 'Modern',
             path: '/dashboards/modern',
-            component: () => import('@/views/dashboards/modern/Modern.vue'),
+            component: () => import('@/views/apps/RecursosM/Equipamiento/Products.vue'),
         },
         {
             name: 'Chats',
