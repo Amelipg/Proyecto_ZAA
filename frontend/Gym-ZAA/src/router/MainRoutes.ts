@@ -13,7 +13,7 @@ const MainRoutes = {
         {
             name: 'Analytical',
             path: '/dashboards/analytical',
-            component: () => import('@/views/dashboards/analytical/Analytical.vue'),
+            component: () => import('@/views/apps/RecursosM/Equipamiento/Products.vue'),
         },
         {
             name: 'Recursos Materialess',
