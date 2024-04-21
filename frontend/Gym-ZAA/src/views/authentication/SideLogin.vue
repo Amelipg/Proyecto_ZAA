@@ -15,7 +15,7 @@ import LoginForm from '@/components/auth/LoginForm.vue';
                     </div>
                 </div>
                 <div class="">
-                    <img src="@/assets/images/backgrounds/login-bg.svg" height="450" class="position-relative d-none d-lg-flex"
+                    <img src="@/assets/images/backgrounds/login-bg.svg" height="600" class="position-relative d-none d-lg-flex"
                         alt="login-background" />
                 </div>
             </v-col>

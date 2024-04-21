@@ -152,6 +152,7 @@ function AddCart(p: number) {
     </v-card>
 </template>
 
+
 <style scoped lang="scss">
 @media (max-width: 1279px) {
     .v-card {

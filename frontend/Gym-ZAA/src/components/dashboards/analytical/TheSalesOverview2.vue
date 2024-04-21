@@ -73,7 +73,7 @@ const chartOptions = computed(() => {
     <v-card-text >
       <div class="d-sm-flex align-center">
         <div>
-          <h3 class="text-h4">Mantenimiento</h3>
+          <h3 class="text-h4">Equipamiento</h3>
         </div>
         <v-spacer></v-spacer>
         <div class="ml-auto">
