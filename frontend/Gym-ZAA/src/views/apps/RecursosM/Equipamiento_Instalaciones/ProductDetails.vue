@@ -6,7 +6,9 @@ import WelcomeCard from "@/components/dashboards/analytical/WelcomeCard.vue";
 import TheEarnings from "@/components/dashboards/analytical/TheEarnings.vue";
 import MonthlyRevenue from "@/components/dashboards/analytical/MonthlyRevenue.vue";
 import TheSalesOverview from "@/components/dashboards/analytical/TheSalesOverview.vue";
+import TheSalesOverview2 from "@/components/dashboards/analytical/TheSalesOverview2.vue";
 import TotalSales from "@/components/dashboards/analytical/TotalSales.vue";
+import TotalSales2 from "@/components/dashboards/analytical/TotalSales2.vue";
 import ProductMonthTable from "@/components/dashboards/analytical/ProductMonthTable.vue";
 import BlogCard from "@/components/dashboards/analytical/BlogCard.vue";
 import WeeklyStats from "@/components/dashboards/analytical/WeeklyStats.vue";
@@ -36,22 +38,24 @@ const breadcrumbs = ref([
       </v-row>
     </v-col> -->
     <!---Sales overview-->
-    <!-- <v-col cols="12" sm="12" lg="6">
+    <v-col cols="12" sm="12" lg="14">
       <TheSalesOverview/>
-    </v-col> -->
+    </v-col>
+
+    <v-col cols="12" sm="12" lg="14">
+      <TotalSales/>
+    </v-col>
+
+    <v-col cols="12" sm="12" lg="14">
+      <TheSalesOverview2/>
+    </v-col>
+
      <!---Total sales-->
-    <v-col cols="12" sm="12" lg="6">
-      <TotalSales/>
+    <v-col cols="12" sm="12" lg="14">
+      <TotalSales2/>
     </v-col>
-    <v-col cols="12" sm="12" lg="6">
-      <TotalSales/>
-    </v-col>
-    <v-col cols="12" sm="12" lg="6">
-      <TotalSales/>
-    </v-col>
-    <v-col cols="12" sm="12" lg="6">
-      <TotalSales/>
-    </v-col>
+    
+   
      <!---Product month table-->
     <!-- <v-col cols="12" sm="12" lg="8">
       <ProductMonthTable/>

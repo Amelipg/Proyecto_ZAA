@@ -73,5 +73,10 @@ class Equipo(models.Model):
     especificaciones = models.TextField()
     fotografía = models.CharField(max_length=100)
     total_existencia = models.IntegerField()
+    estatus = models.CharField(max_length=100, choices=(
+        ('Disponible', 'Disponible'),
+        ('Agotado', 'Agotado'),
+        ('Mantenimiento', 'Mantenimiento')
+    ), default='Disponible')
     class Meta:
         db_table = 'equipo'
