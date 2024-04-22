@@ -32,7 +32,7 @@
 |--- | --- | 
 | Ameli Perez Garrido | Lider/Desarrollador Backend | 
 | José Zahid Ramirez Estudillo | Segundo del lider/Desarrollador Frontend/Documentador |
-| Amisadai Fernandez Reyes | Tercera del lider/DB Manager/Documentadora | 
+| Amisadai Fernandez Reyes | Tercera del lider/DB Manager | 
 #
 ## Objetivo General 
 Optimizar la adquisición, administración y distribución de los recursos materiales necesarios para el funcionamiento eficiente y efectivo del gimnasio, asegurando un suministro oportuno y adecuado de equipos, materiales de limpieza, productos de higiene y cualquier otro recurso físico requerido, con el fin de garantizar un ambiente seguro, cómodo y atractivo para los clientes y empleados, al mismo tiempo que se minimizan los costos y se maximiza la utilización de los recursos disponibles.
