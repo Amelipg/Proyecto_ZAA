@@ -45,7 +45,7 @@ def image_upload_view(req):
 			if form.is_valid():
 				# Guarda el archivo en una ubicación específica
 				archivo = req.FILES['fotografía']
-				fs = FileSystemStorage(location=os.path.join(os.path.dirname(os.path.dirname(_file_)), '..', 'Frontend', 'Gym-ZAA', 'src', 'assets', 'images','products'))
+				fs = FileSystemStorage(location=os.path.join(os.path.dirname(os.path.dirname(__file__)), '..', 'Frontend', 'Gym-ZAA', 'src', 'assets', 'images','products'))
 				nombre_archivo = fs.save(archivo.name, archivo)
 
 				# Guarda los datos del formulario, incluida la URL del archivo guardado

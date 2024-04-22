@@ -6,7 +6,7 @@ const items = ref(["Foo", "Bar", "Fizz", "Buzz"]);
     <div>
         <v-select
           :items="items"
-          label="Select Item"
+          label="Selecciona"
           hide-details
         ></v-select>
     </div>
