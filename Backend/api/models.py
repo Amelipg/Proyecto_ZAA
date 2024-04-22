@@ -27,7 +27,7 @@ class Prestamo(models.Model):
 
 class Sucursal(models.Model):
     nombre = models.CharField(max_length=100)
-    dirección = models.TextField()
+    direccion = models.TextField()
     responsable_id = models.IntegerField()
     total_clientes_atendidos = models.IntegerField()
     promedio_clientes_x_dia = models.DecimalField(max_digits=10, decimal_places=2)
@@ -67,11 +67,11 @@ class Consumible(models.Model):
 
 class Equipo(models.Model):
     nombre = models.CharField(max_length=100)
-    descripción = models.TextField()
+    descripcion = models.TextField()
     marca = models.CharField(max_length=100)
     modelo = models.CharField(max_length=100)
     especificaciones = models.TextField()
-    fotografía = models.CharField(max_length=100)
+    fotografia = models.CharField(max_length=100)
     total_existencia = models.IntegerField()
     estatus = models.CharField(max_length=100, choices=(
         ('Disponible', 'Disponible'),
@@ -79,4 +79,4 @@ class Equipo(models.Model):
         ('Mantenimiento', 'Mantenimiento')
     ), default='Disponible')
     class Meta:
-        db_table = 'equipo'
+        db_table = 'equipos'
