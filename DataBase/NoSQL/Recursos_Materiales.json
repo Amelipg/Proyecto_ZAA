@@ -1,0 +1,85 @@
+[
+  {
+    "_id": "1",
+    "usuario": "usuario123",
+    "contenido": "¡Excelente equipo! Lo he estado usando durante semanas y estoy muy satisfecho con los resultados. Definitivamente lo recomendaría a otros usuarios del gimnasio.",
+    "fecha": "2024-04-18T10:00:00Z",
+    "calificacion": 5,
+    "respuestas": [
+      {
+        "_id": "1-1",
+        "usuario": "admin",
+        "contenido": "¡Nos alegra que te esté yendo bien con el equipo! ¡Sigue así!"
+      },
+      {
+        "_id": "1-2",
+        "usuario": "otrousuario",
+        "contenido": "Totalmente de acuerdo, este equipo es impresionante."
+      }
+    ]
+  },
+  {
+    "_id": "2",
+    "usuario": "ejemplo456",
+    "contenido": "El equipo es bueno, pero sería genial si agregaran más variedad de pesas. A veces, las pesas más pesadas están ocupadas.",
+    "fecha": "2024-04-17T15:30:00Z",
+    "calificacion": 4,
+    "respuestas": [
+      {
+        "_id": "2-1",
+        "usuario": "admin",
+        "contenido": "¡Gracias por tus comentarios! Tomaremos en cuenta tu sugerencia para mejorar nuestra oferta de pesas."
+      }
+    ]
+  },
+  {
+    "_id": "3",
+    "usuario": "nuevousuario789",
+    "contenido": "¡Me encanta este gimnasio! El personal es amable y los equipos siempre están limpios. Además, los horarios de apertura son muy convenientes para mí.",
+    "fecha": "2024-04-16T08:45:00Z",
+    "calificacion": 5,
+    "respuestas": [
+      {
+        "_id": "3-1",
+        "usuario": "admin",
+        "contenido": "Nos esforzamos por mantener un ambiente limpio y acogedor para todos nuestros usuarios. ¡Gracias por tus amables palabras!"
+      }
+    ]
+  },
+  {
+    "_id": "4",
+    "usuario": "fitnesslover",
+    "contenido": "¡El mejor gimnasio de la ciudad! Amplia variedad de equipos y clases, y el personal siempre está dispuesto a ayudar.",
+    "fecha": "2024-04-15T12:20:00Z",
+    "calificacion": 5,
+    "respuestas": []
+  },
+  {
+    "_id": "5",
+    "usuario": "entrenador1",
+    "contenido": "Buen lugar para entrenar. Sería útil tener más espacio para realizar ejercicios de peso corporal.",
+    "fecha": "2024-04-14T17:10:00Z",
+    "calificacion": 4,
+    "respuestas": [
+      {
+        "_id": "5-1",
+        "usuario": "admin",
+        "contenido": "Apreciamos tus comentarios. Consideraremos cómo mejorar el espacio para los ejercicios de peso corporal."
+      }
+    ]
+  },
+  {
+    "_id": "6",
+    "usuario": "visitante",
+    "contenido": "Me gustaría probar el gimnasio, pero los precios son un poco altos para mí.",
+    "fecha": "2024-04-13T09:55:00Z",
+    "calificacion": 3,
+    "respuestas": [
+      {
+        "_id": "6-1",
+        "usuario": "admin",
+        "contenido": "Entendemos tu preocupación. Revisaremos nuestras opciones de precios para ver si podemos ofrecerte una solución adecuada."
+      }
+    ]
+  }
+]
