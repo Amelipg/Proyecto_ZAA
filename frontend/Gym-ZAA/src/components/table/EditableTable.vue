@@ -8,20 +8,7 @@ const rules = ref([
         !value || value.size < 2000000 || "¡El tamaño de la imagen debe ser menor a 2 MB!",
 ]);
 
-// fetch('http://localhost:8000/gimnasio/api/v1Equipo/')
-//             .then(res => {
-//                 if (!res.ok) {
-//                     throw new Error('Error al obtener los registros');
-//                 }
-//                 return res.json();
-//             })
-//             .then(equipo => {
-// 		console.log(equipo)
-//             })
-//             .catch(error => {
-//                 console.error('Error al obtener los registros: ' + error);
-//             });
-
+const items = ref(["Disponible", "Mantenimiento"]);
 
 const store = useContactStore();
 
@@ -47,11 +34,12 @@ const datos_equipo = ref({
     modelo: '',
     especificaciones: '',
     total_existencia: 0,
-    fotografía: ''
+    fotografía: '',
+    estatus: '',
 });
 
 const validarNumero = (event) => {
-    let value = parseInt(event.target.value.replace('e',''));
+    let value = parseInt(event.target.value.replace('e', ''));
     if (value < 0) {
         datos_equipo.value.total_existencia = 0;
     }
@@ -64,12 +52,7 @@ const handleFileChange = (event) => {
     if (fileList.length > 0) {
         const file = fileList[0];
 
-        // Asignamos la URL al ref datos_equipo
-        datos_equipo.value.fotografía = URL.createObjectURL(file);
-        console.log(datos_equipo.value.fotografía)
-
-        console.log(file.name)
-
+        datos_equipo.value.fotografía = file;
     }
 };
 
@@ -81,7 +64,8 @@ const defaultItem = ref({
     modelo: '',
     especificaciones: '',
     total_existencia: 0,
-    fotografía: ''
+    fotografía: '',
+    estatus: '',
 });
 
 //Methods
@@ -135,55 +119,71 @@ function close(option) {
     }, 300);
 }
 async function save(option) {
-    console.log(JSON.stringify(datos_equipo.value))
     if (editedIndex.value > -1) {
         Object.assign(desserts.value[editedIndex.value], datos_equipo.value);
     } else {
-        desserts.value.push(datos_equipo.value);
-    }
-    if (option == 1) {
-        const formData = new FormData();
-        formData.append('imagen', file);
-        formData.append('url_imagen', datos_equipo.value.fotografía);
+        if (option == 1) {
+            const formData = new FormData();
+            formData.append('nombre', datos_equipo.value.nombre);
+            formData.append('descripción', datos_equipo.value.descripción);
+            formData.append('marca', datos_equipo.value.marca);
+            formData.append('modelo', datos_equipo.value.modelo);
+            formData.append('especificaciones', datos_equipo.value.especificaciones);
+            formData.append('total_existencia', datos_equipo.value.total_existencia);
+            formData.append('estatus', datos_equipo.value.estatus);
+            formData.append('fotografía', datos_equipo.value.fotografía);
 
-        await fetch('http://localhost:8000/gimnasio/api/v1Equipo/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(datos_equipo.value),
-        }).then(res => {
-            if (!res.ok) {
-                throw new Error('Error al insertar los datos al servidor: ' + res);
-            }
-
-            return res.json();
-        })
-            .catch(error => {
+            await fetch('http://localhost:8000/gimnasio/upload/', {
+                method: 'POST',
+                body: formData,
+            }).then(res => {
+                if (!res.ok) {
+                    throw new Error('Error al insertar los datos al servidor: ' + res.statusText);
+                }
+                // No necesitas analizar la respuesta como JSON, ya que es simplemente un mensaje de texto
+                return res.json();
+            }).then(data => {
+                // Verificar si la respuesta contiene el ID del último registro insertado
+                if (data && data.last_inserted_id) {
+                    datos_equipo.value.id = data.last_inserted_id;
+                    desserts.value.push(datos_equipo.value);
+                    // Hacer algo con el ID, como mostrarlo en la interfaz de usuario
+                } else {
+                    console.error('La respuesta del servidor no contiene el ID del último registro insertado.');
+                }
+            }).catch(error => {
                 console.error('Error al enviar los datos al servidor: ' + error);
-                return error
+                return error;
             });
-        
-        
-    } else {
-        await fetch('http://localhost:8000/gimnasio/api/v1Equipo/' + datos_equipo.value.id + '/', {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(datos_equipo.value),
-        }).then(res => {
-            if (!res.ok) {
-                throw new Error('Error al insertar los datos al servidor: ' + res);
-            }
+        } else {
+            await fetch('http://localhost:8000/gimnasio/api/v1Equipo/' + datos_equipo.value.id + '/', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(datos_equipo.value),
+            }).then(res => {
+                if (!res.ok) {
+                    throw new Error('Error al insertar los datos al servidor: ' + res.json());
+                }
 
-            return res.json();
-        })
-            .catch(error => {
-                console.error('Error al enviar los datos al servidor: ' + error);
-                return error
-            });
+                return res.json();
+            }).then(data => {
+                // Verificar si la respuesta contiene el ID del último registro insertado
+                if (data && data.last_inserted_id) {
+                    datos_equipo.value.id = data.last_inserted_id;
+                    desserts.value.push(datos_equipo.value);
+                    // Hacer algo con el ID, como mostrarlo en la interfaz de usuario
+                } else {
+                    console.error('La respuesta del servidor no contiene el ID del último registro insertado.');
+                }
+            })
+                .catch(error => {
+                    console.error('Error al enviar los datos al servidor: ' + error.message);
+                    return error.message
+                });
 
+        }
     }
 
     close(option);
@@ -200,7 +200,8 @@ const formTitle = computed(() => {
             modelo: '',
             especificaciones: '',
             total_existencia: 0,
-            fotografía: ''
+            fotografía: '',
+            estatus: '',
         }
         return 'Agregar Equipo'
     } else {
@@ -257,14 +258,16 @@ const formTitle = computed(() => {
                                 </v-col>
                                 <v-col>
                                     <div>
-                                        <v-file-input :rules="rules" accept="image/png, image/jpeg, image/bmp"
+                                        <v-file-input :rules="rules"
+                                            accept="image/png, image/jpeg, image/jpg, image/bmp"
                                             placeholder="Escoge una imagen" prepend-icon="mdi-camera" variant="outlined"
                                             label="Imagen" hide-details @change="handleFileChange"></v-file-input>
                                     </div>
                                 </v-col>
-                                <!-- <v-col cols="12" sm="6">
-                                    <v-text-field variant="outlined" hide-details v-model="datos_equipo.role" label="Role"></v-text-field>
-                                </v-col> -->
+                                <v-col>
+                                    <v-select v-model="datos_equipo.estatus" :items="items" label="Select Item"
+                                        hide-details></v-select>
+                                </v-col>
                             </v-row>
                         </v-form>
                     </v-card-text>
@@ -325,9 +328,10 @@ const formTitle = computed(() => {
                                             label="Imagen" hide-details @change="handleFileChange"></v-file-input>
                                     </div>
                                 </v-col>
-                                <!-- <v-col cols="12" sm="6">
-                                    <v-text-field variant="outlined" hide-details v-model="datos_equipo.role" label="Role"></v-text-field>
-                                </v-col> -->
+                                <v-col>
+                                    <v-select v-model="datos_equipo.estatus" :items="items" label="Select Item"
+                                        hide-details></v-select>
+                                </v-col>
                             </v-row>
                         </v-form>
                     </v-card-text>
@@ -358,6 +362,7 @@ const formTitle = computed(() => {
                 <th class="text-subtitle-1 font-weight-semibold">Modelo</th>
                 <th class="text-subtitle-1 font-weight-semibold">Especificaciones</th>
                 <th class="text-subtitle-1 font-weight-semibold">Cantidad</th>
+                <th class="text-subtitle-1 font-weight-semibold">Estatus</th>
                 <th class="text-subtitle-1 font-weight-semibold">Acciones</th>
             </tr>
         </thead>
@@ -370,6 +375,7 @@ const formTitle = computed(() => {
                 <td class="text-subtitle-1">{{ item.modelo }}</td>
                 <td class="text-subtitle-1">{{ item.especificaciones }}</td>
                 <td class="text-subtitle-1">{{ item.total_existencia }}</td>
+                <td class="text-subtitle-1">{{ item.estatus }}</td>
                 <td>
                     <div class="d-flex align-center">
                         <v-tooltip text="Editar">

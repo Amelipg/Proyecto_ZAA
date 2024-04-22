@@ -31,4 +31,4 @@ mock.onGet('/api/contacts').reply(() => {
 });
 
 
-export default contacts;
+export default contacts; 
