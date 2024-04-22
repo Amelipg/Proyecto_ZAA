@@ -24,8 +24,24 @@ export const useEcomStore = defineStore({
         // Fetch Customers from action
         async fetchProducts() {
             try {
-                const data = await axios.get('/api/products/list');
-                this.products = data.data;
+                let equipos = []
+                await axios.get('http://localhost:8000/gimnasio/api/v1Equipo/').then(res => {
+                    equipos = res.data
+                });
+
+                let join_equipos = []
+                equipos.forEach(equipo => {
+                    if (equipo.estatus == 'Disponible') {
+                        join_equipos.push({
+                            name: equipo.nombre,
+                            image: '/src/assets/images/products/s2.jpg',
+                            description: equipo.descripcion,
+                            id: equipo.id
+                        })
+                    }
+                })
+
+                this.products = join_equipos;
             } catch (error) {
                 alert(error);
                 console.log(error);
@@ -115,8 +131,8 @@ export const useEcomStore = defineStore({
         },
 
         //Reset Filter
-        filterReset(){}
+        filterReset() { }
 
 
-    }
+    }
 });
