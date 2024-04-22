@@ -10,7 +10,7 @@ class MiembroAdeudos(models.Model):
     observaciones = models.TextField()
     class Meta:
         db_table = 'miembros'
-    def __str__(self):
+    def _str_(self):
         return self.nombre_cliente
 
 
@@ -67,11 +67,11 @@ class Consumible(models.Model):
 
 class Equipo(models.Model):
     nombre = models.CharField(max_length=100)
-    descripcion = models.TextField()
+    descripción = models.TextField()
     marca = models.CharField(max_length=100)
     modelo = models.CharField(max_length=100)
     especificaciones = models.TextField()
-    fotografia = models.CharField(max_length=100)
+    fotografía = models.ImageField(upload_to='assets/imagenes/', blank=True, null=True)
     total_existencia = models.IntegerField()
     estatus = models.CharField(max_length=100, choices=(
         ('Disponible', 'Disponible'),
