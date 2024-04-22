@@ -14,7 +14,7 @@
 </div>
 
 ##
-![grafico organigrama gratis empresa ilustracion moderno celeste](https://github.com/Amelipg01/Proyecto_ZAA/assets/163442344/3c1e22a5-f691-44f2-b871-169fbc9897e2)
+![grafico organigrama gratis empresa ilustracion moderno celeste](https://github.com/Amelipg01/Proyecto_ZAA/assets/163442344/33114a84-0550-444b-899d-1f11ee98390c)
 #
 <p align="center">
   <img src="https://github.com/Amelipg01/Proyecto_ZAA/assets/163442344/d729c02e-aca8-437e-b643-8833ac7c1089" " style="display:block; margin:auto;">
