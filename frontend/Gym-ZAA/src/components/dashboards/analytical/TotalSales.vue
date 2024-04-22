@@ -12,7 +12,7 @@ const chartOptions = computed(() => {
       foreColor: "#adb0bb",
       fontFamily: "DM sans",
     },
-    colors: [getSecondary.value, getPrimary.value, "#ecf0f2"],
+    colors: [getSecondary.value, getPrimary.value, "#eee35e"],
     dataLabels: { enabled: false },
     legend: { show: false },
     grid: {
@@ -110,7 +110,7 @@ const items = ref(["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio
               <i class="mdi mdi-brightness-1 text-warning mx-1"></i>
             </span>
             <span class="text-subtitle-1 textSecondary font-weight-medium mr-1"
-              >Descom.
+              >Pend.
             </span>
           </span>
         </div>
