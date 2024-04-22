@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="https://github.com/Amelipg01/Proyecto_ZAA/assets/163442344/b83cb003-a6a1-488d-b0a7-8276a62b0e9a" alt="Descripción de la imagen" style="display:block; margin:auto;">
+  <img src="https://github.com/Amelipg01/Proyecto_ZAA/assets/163442344/ee1c07a1-aa1d-4fd2-ab9f-a53f495a7e65" alt="Descripción de la imagen" style="display:block; margin:auto;">
 </p>
 <div align="center">
   <h1>UNIVERSIDAD TECNOLOGICA DE XICOTEPEC DE JUÁREZ</h1>
