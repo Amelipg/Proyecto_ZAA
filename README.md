@@ -147,7 +147,9 @@ npm install
 ```
 npm run dev
 ```
-4. Abre el navegador y accede a la liga en pantalla 
+4. Abre el navegador y accede a la liga en pantalla
+```
+5. Si tienes dudas o problemas no dudes en preguntar.
 
 
 
