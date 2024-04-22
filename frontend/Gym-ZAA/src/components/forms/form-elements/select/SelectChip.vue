@@ -65,7 +65,7 @@ const states = ref([
 </script>
 <template>
     <div>
-        <v-select v-model="e6" :items="states" label="Select item" multiple chips hint="What are the target regions"
+        <v-select v-model="e6" :items="states" label="Selecciona" multiple chips hint="What are the target regions"
             persistent-hint></v-select>
     </div>
 </template>

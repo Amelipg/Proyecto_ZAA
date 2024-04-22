@@ -265,7 +265,7 @@ const formTitle = computed(() => {
                                     </div>
                                 </v-col>
                                 <v-col>
-                                    <v-select v-model="datos_equipo.estatus" :items="items" label="Select Item"
+                                    <v-select v-model="datos_equipo.estatus" :items="items" label="Selecciona"
                                         hide-details></v-select>
                                 </v-col>
                             </v-row>
@@ -329,7 +329,7 @@ const formTitle = computed(() => {
                                     </div>
                                 </v-col>
                                 <v-col>
-                                    <v-select v-model="datos_equipo.estatus" :items="items" label="Select Item"
+                                    <v-select v-model="datos_equipo.estatus" :items="items" label="Selecciona"
                                         hide-details></v-select>
                                 </v-col>
                             </v-row>
