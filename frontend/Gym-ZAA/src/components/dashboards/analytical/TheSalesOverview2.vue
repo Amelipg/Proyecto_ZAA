@@ -5,8 +5,8 @@ import { getPrimary, getSecondary } from '@/utils/UpdateColors';
 const chartOptions = computed(() => {
   return {
     series: [
-      { name: "Ample", data: [355, 390, 300, 350, 390, 180] },
-      { name: "Pixel", data: [280, 250, 325, 215, 250, 310] },
+      { name: "Cantidad", data: [355, 390, 300, 350, 390, 180] },
+      { name: "Unidad Medida", data: [280, 250, 325, 215, 250, 310] },
     ],
     grid: {
       show: false,
@@ -33,7 +33,7 @@ const chartOptions = computed(() => {
     legend: { show: false },
     xaxis: {
       type: "category",
-      categories: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      categories: ["Lun", "Mar", "Mie", "Jue", "Vie", "Sab"],
       labels: {
         style: { cssClass: "grey--text lighten-2--text fill-color" },
       },

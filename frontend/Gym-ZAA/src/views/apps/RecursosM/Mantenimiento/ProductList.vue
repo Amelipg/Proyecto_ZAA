@@ -122,7 +122,7 @@ function AddCart(p: number) {
                                     variant="outlined"
                                     v-model="searchValue"
                                     prepend-inner-icon="mdi-magnify"
-                                    placeholder="Buscar Productos"
+                                    placeholder="Buscar Equipos"
                                     hide-details
                                     density="compact"
                                     color="primary"

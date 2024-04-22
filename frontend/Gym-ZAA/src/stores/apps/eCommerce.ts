@@ -3,7 +3,7 @@ import { defineStore } from 'pinia';
 import axios from '@/utils/axios';
 // types
 import type { ProductStateProps } from '@/types/apps/EcommerceType';
-import { filter, map, sum } from 'lodash';
+import { eq, filter, map, replace, sum } from 'lodash';
 
 export const useEcomStore = defineStore({
     id: 'eCommerceone',
@@ -24,8 +24,30 @@ export const useEcomStore = defineStore({
         // Fetch Customers from action
         async fetchProducts() {
             try {
-                const data = await axios.get('/api/products/list');
-                this.products = data.data;
+                let equipos = []
+                await axios.get('http://localhost:8000/gimnasio/api/v1Equipo/').then(res => {
+                    equipos = res.data
+                });
+
+                let join_equipos = []
+                equipos.forEach(equipo => {
+                    if (equipo.estatus == 'Disponible') {
+                        console.log(equipo)
+                        let url_imagen:String = equipo.fotografía
+                        
+                        url_imagen = url_imagen.substring(url_imagen.indexOf('/assets'));
+                        console.log(url_imagen)
+
+                        join_equipos.push({
+                            name: equipo.nombre,
+                            image: '/src/' + url_imagen,
+                            description: equipo.descripcion,
+                            id: equipo.id
+                        })
+                    }
+                })
+
+                this.products = join_equipos;
             } catch (error) {
                 alert(error);
                 console.log(error);
@@ -115,7 +137,7 @@ export const useEcomStore = defineStore({
         },
 
         //Reset Filter
-        filterReset(){}
+        filterReset() { }
 
 
     }

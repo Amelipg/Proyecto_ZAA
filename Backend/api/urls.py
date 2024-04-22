@@ -13,5 +13,6 @@ router.register(r'Equipo', views.equipoviewset)
 router.register(r'EquipoExistencia', views.equipo_existenciaviewset)
 
 urlpatterns = [
-	path('api/v1',include(router.urls))
+	path('api/v1',include(router.urls)),
+    path('upload/', views.image_upload_view)
 ]

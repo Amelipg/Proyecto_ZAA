@@ -5,7 +5,7 @@ import { getPrimary, getSecondary } from '@/utils/UpdateColors';
 const chartOptions = computed(() => {
   return {
     series: [25, 35, 35],
-    labels: ["Mantenimiento", "Disponibles", "Sin Funcionar", "2018"],
+    labels: ["Mantenimiento", "Disponibles", "Pendientes", "2018"],
     chart: {
       height: 280,
       type: "donut",
