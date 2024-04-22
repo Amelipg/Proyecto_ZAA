@@ -67,11 +67,11 @@ class Consumible(models.Model):
 
 class Equipo(models.Model):
     nombre = models.CharField(max_length=100)
-    descripción = models.TextField()
+    descripcion = models.TextField()
     marca = models.CharField(max_length=100)
     modelo = models.CharField(max_length=100)
     especificaciones = models.TextField()
-    fotografía = models.ImageField(upload_to='assets/imagenes/', blank=True, null=True)
+    fotografia = models.ImageField(upload_to='assets/imagenes/', blank=True, null=True)
     total_existencia = models.IntegerField()
     estatus = models.CharField(max_length=100, choices=(
         ('Disponible', 'Disponible'),
