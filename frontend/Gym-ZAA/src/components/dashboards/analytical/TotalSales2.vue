@@ -12,7 +12,7 @@ const chartOptions2 = computed(() => {
       foreColor: "#adb0bb",
       fontFamily: "DM sans",
     },
-    colors: [getSecondary.value, getPrimary.value, "#ecf0f2"],
+    colors: [getSecondary.value, getPrimary.value, "#eee35e"],
     dataLabels: { enabled: false },
     legend: { show: false },
     grid: {
@@ -57,7 +57,7 @@ const items2 = ref(["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Juli
   <v-card elevation="10" >
     <v-card-text>
       <div class="d-flex align-center mb-5">
-        <h2 class="text-h4">Equipamiento</h2>
+        <h2 class="text-h4">Equipos en Existencia</h2>
         <div class="ml-auto">
           <v-select
             v-model="select2"
@@ -110,7 +110,7 @@ const items2 = ref(["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Juli
               <i class="mdi mdi-brightness-1 text-warning mx-1"></i>
             </span>
             <span class="text-subtitle-1 textSecondary font-weight-medium mr-1"
-              >Descom.
+              >Pend.
             </span>
           </span>
         </div>

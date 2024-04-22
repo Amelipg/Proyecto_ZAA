@@ -35,68 +35,6 @@ class Migration(migrations.Migration):
                 DROP TRIGGER IF EXISTS sucursales_AFTER_DELETE;
             '''
             ),
-        
-        migrations.RunSQL(
-            '''
-CREATE DEFINER=`root`@`localhost` TRIGGER `adeudos_AFTER_INSERT` AFTER INSERT ON `adeudos` FOR EACH ROW BEGIN
-    INSERT INTO bitacora values (
-    default,
-    user(),
-		"Create",
-		"adeudo",
-        CONCAT_WS(" ","Se ha insertado un nuevo adeudo con el ID: ",NEW.ID, 
-        "con los siguientes datos: NOMBRE=", NEW.nombre_cliente,
-        "RECURSO_PRESTADO = ", NEW.recurso_prestado,
-        "FECHA_PRESTAMO = ", NEW.fecha_prestamo,
-        "FECHA_DEVOLUCION_ESTIMADA = ", NEW.fecha_devolucion_estimada, 
-        "CANTIDAD_PRESTADA = ", NEW.cantidad_prestada,
-        "ESTADO_DEVOLUCION = ", NEW.estado_devolucion, 
-        "OBSERVACIONES = ", NEW.observaciones),
-        NOW(),
-        DEFAULT
-    );
-  
-END
-        
-            '''
-    ),
-        migrations.RunSQL(
-            '''
-            CREATE DEFINER=`root`@`localhost` TRIGGER `adeudos_AFTER_UPDATE` AFTER UPDATE ON `adeudos` FOR EACH ROW BEGIN
-INSERT INTO bitacora VALUES(
-		DEFAULT,
-        USER(),
-        "Update",
-        "adeudos",
-        CONCAT_WS(" ","Se han actualizado los datos del adeudo con el ID: ",NEW.ID, 
-        "con los siguientes datos:", "NOMBRE=", OLD.nombre_cliente, " cambio a " ,NEW.nombre_cliente,
-        "RECURSO_PRESTADO = ", OLD.recurso_prestado, " cambio a " , NEW.recurso_prestado,
-        "FECHA_PRESTAMO = ", OLD.fecha_prestamo, " cambio a " , NEW.fecha_prestamo,
-        "FECHA_DEVOLUCION_ESTIMADA = ", OLD.fecha_devolucion_estimada, " cambio a " , NEW.fecha_devolucion_estimada, 
-        "CANTIDAD_PRESTADA = ", OLD.cantidad_prestada, " cambio a " , NEW.cantidad_prestada,
-        "ESTADO_DEVOLUCION = ", OLD.estado_devolucion, " cambio a " , NEW.estado_devolucion, 
-        "OBSERVACIONES = ", OLD.observaciones, " cambio a " , NEW.observaciones),
-        NOW(),
-        DEFAULT
-    );
-END
-            '''
-        ),
-        migrations.RunSQL(
-            '''
-            CREATE DEFINER=`root`@`localhost` TRIGGER `adeudos_AFTER_DELETE` AFTER DELETE ON `adeudos` FOR EACH ROW BEGIN
-INSERT INTO bitacora VALUES(
-		DEFAULT,
-        USER(),
-        "Delete",
-        "adeudos",
-        CONCAT_WS(" ","Se ha eliminado un adeudo con el ID: ", OLD.ID),
-        now(),
-        DEFAULT
-    );
-END
-            '''
-        ),
         migrations.RunSQL(
             '''
             CREATE DEFINER=`root`@`localhost` TRIGGER `consumibles_AFTER_INSERT` AFTER INSERT ON `consumibles` FOR EACH ROW BEGIN
@@ -403,7 +341,7 @@ END
         ),
         migrations.RunSQL(
             '''
-            REATE DEFINER=`root`@`localhost` TRIGGER `prestamos_AFTER_UPDATE` AFTER UPDATE ON `prestamos` FOR EACH ROW BEGIN
+            CREATE DEFINER=`root`@`localhost` TRIGGER `prestamos_AFTER_UPDATE` AFTER UPDATE ON `prestamos` FOR EACH ROW BEGIN
  INSERT INTO bitacora VALUES(
 		DEFAULT,
         USER(),
@@ -567,4 +505,18 @@ CREATE DEFINER=`root`@`localhost` TRIGGER `sucursales_AFTER_DELETE` AFTER DELETE
 END
             '''
         ),
+        migrations.RunSQL(
+            '''
+            CREATE TABLE `bitacora` (
+  `ID` int unsigned NOT NULL AUTO_INCREMENT COMMENT 'DESCRIPCION: Identificador unico  de bitacora. TIPO: Numero entero. Naturaleza: Cuantitativo. Dominio: Alfabeto. COMPOSICION: 1{1-9}',
+  `Usuario` varchar(50) NOT NULL COMMENT 'DESCRIPCION: Almacena el nombre del usuario que realizó en el sistema. TIPO: Alfabetico. Naturaleza: Cualitativo. Dominio: Alfabeto. COMPOSICION: 1{A-Z | a-z|(**)}',
+  `Operacion` enum('Create','Read','Update','Delete') NOT NULL COMMENT 'DESCRIPCION: registra el tipo de operación realizada, como inserción, actualización o eliminación de datos en el sistema. TIPO: Alfabetico. Naturaleza: Cualitativo. Dominio: Alfabeto. COMPOSICION: 1{A-Z | a-z|(**)}',
+  `Tabla` varchar(50) NOT NULL COMMENT 'DESCRIPCION: almacena datos relacionados con las operaciones realizadas en el sistema, proporcionando un registro de eventos para propósitos de seguimiento y auditoría. TIPO: Alfabetico. Naturaleza: Cualitativo. Dominio: Alfabeto. COMPOSICION: 1{A-Z | a-z|(**)}',
+  `Descripcion` text NOT NULL COMMENT 'DESCRIPCION: Descripción del evento registrado en la bitácora. TIPO: Alfabetico. Naturaleza: Cualitativo. Dominio: Alfabeto. COMPOSICION: 1{A-Z | a-z|(**)}',
+  `Fecha_Hora` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'DESCRIPCION: Fecha y hora en que ocurrio el evento. TIPO: Numero entero. Naturaleza: Cuantitativo. Dominio: Alfabeto. COMPOSICION: 1{1-9}',
+  `Estatus` bit(1) NOT NULL DEFAULT b'1' COMMENT 'DESCRIPCION: Estado del evento registrado en la bitácora. TIPO: Alfabetico. Naturaleza: Cuanlitativo. Dominio: Alfabeto. COMPOSICION: 1{A-Z | a-z|(**)}',
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=184970 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+      '''
+        )
     ]

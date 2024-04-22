@@ -33,7 +33,7 @@ const chartOptions = computed(() => {
     legend: { show: false },
     xaxis: {
       type: "category",
-      categories: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      categories: ["Lun", "Mar", "Mie", "Jue", "Vie", "Sab"],
       labels: {
         style: { cssClass: "grey--text lighten-2--text fill-color" },
       },
@@ -73,7 +73,7 @@ const chartOptions = computed(() => {
     <v-card-text >
       <div class="d-sm-flex align-center">
         <div>
-          <h3 class="text-h4">Mantenimiento</h3>
+          <h3 class="text-h4">Sucursales</h3>
         </div>
         <v-spacer></v-spacer>
         <div class="ml-auto">
@@ -83,7 +83,7 @@ const chartOptions = computed(() => {
                 <span class="text-overline">
                   <i class="mdi mdi-brightness-1 mx-1"></i>
                 </span>
-                <span class="text-subtitle-1">Ample</span>
+                <span class="text-subtitle-1">Clientes</span>
               </span>
             </div>
             <div class="d-flex align-center px-2">
@@ -91,7 +91,7 @@ const chartOptions = computed(() => {
                 <span class="text-overline">
                   <i class="mdi mdi-brightness-1 mx-1"></i>
                 </span>
-                <span class="text-subtitle-1">Pixel Admin</span>
+                <span class="text-subtitle-1">Capacidad Máxima</span>
               </span>
             </div>
           </div>
